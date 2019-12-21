@@ -13,6 +13,7 @@
 //#define MachineCR10S
 //#define MachineCR10SV2
 #define MachineCR10SPro // Graphics LCD Requires soldering R64 and R66
+#define JP10SProVariant
 //#define MachineCR10SProV2 // Second Gen 10S Pro with BLTouch wired to Z Max
 //#define MachineCRX
 //#define MachineCR10Max
@@ -284,6 +285,15 @@
   #endif
   #define MeshStd
   #define lerdgeFilSensor
+  #if ENABLED(JP10SProVariant)
+    #undef  MeshStd
+    #define MeshFast
+
+    #undef  HotendStock
+    #undef  HotendAllMetal
+    #define HotendE3D
+    #define E3DHemera
+  #endif
 #endif
 
 #if ENABLED(MachineCR10Max)
@@ -811,6 +821,8 @@
   #define HEATER_0_MAXTEMP 450
 #elif ENABLED(HotendAllMetal)
 	#define HEATER_0_MAXTEMP 315
+#elif ENABLED(E3DHemera)
+  #define HEATER_0_MAXTEMP 300
 #else
 	#define HEATER_0_MAXTEMP 255
 #endif
@@ -1468,6 +1480,8 @@
    #elif ANY(ABL_EZABL, ABL_NCSW)
      #define NOZZLE_TO_PROBE_OFFSET { -44, -10, 0 }
    #endif
+#elif ENABLED(JP10SProVariant)
+  #define NOZZLE_TO_PROBE_OFFSET { 60, 0, 0 }
 #elif ANY(MachineCR10SPro, MachineCR10Max) && ENABLED(HotendStock)
   #define NOZZLE_TO_PROBE_OFFSET { -27, 0, 0 }
 #elif ENABLED(MachineCR10SV2)
@@ -1649,6 +1663,9 @@
     #define INVERT_Z_DIR false
   #else
     #define INVERT_Z_DIR true
+  #endif
+  #if ENABLED(E3DHemera)
+    #define INVERT_E0_DIR true
   #endif
   #if ANY(E3DTitan, MachineCR2020)
     #define INVERT_E0_DIR true
@@ -2155,6 +2172,9 @@
   #elif ANY(MachineEnder5, MachineEnder5Plus)
     #define Z_SAFE_HOMING_X_POINT 110 + HOMING_ADD    // X point for Z homing when homing all axis (G28).
     #define Z_SAFE_HOMING_Y_POINT 110 + HOMING_ADD    // Y point for Z homing when homing all axis (G28).
+  #elif ENABLED(JP10SProVariant)
+    #define Z_SAFE_HOMING_X_POINT 70 + HOMING_ADD    // X point for Z homing when homing all axis (G28).
+    #define Z_SAFE_HOMING_Y_POINT 70 + HOMING_ADD    // Y point for Z homing when homing all axis (G28).
   #else
     #define Z_SAFE_HOMING_X_POINT 50 + HOMING_ADD    // X point for Z homing when homing all axis (G28).
     #define Z_SAFE_HOMING_Y_POINT 50 + HOMING_ADD    // Y point for Z homing when homing all axis (G28).
