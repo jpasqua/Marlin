@@ -42,12 +42,12 @@
 
    Mosquito assumes E3D Groovemount setup using the above as well
 */
-#define HotendStock
-//#define HotendE3D
+//#define HotendStock
+#define HotendE3D
 //#define HotendMosquito
 
 //Enable this if you have an all metal hotend capable of 300c
-#define HotendAllMetal
+//#define HotendAllMetal
 
 // Enable this if you used a plug and play creality e3d kit with the Creality thermistor
 //#define CrealityThermistor
@@ -59,7 +59,7 @@
  //#define EZRstruder
  //#define Bondtech
  //#define E3DTitan
- //#define E3DHemera
+ #define E3DHemera
 
  //#define DirectDrive // Any direct drive extruder, reduces filament change lengths
 
@@ -285,15 +285,6 @@
   #endif
   #define MeshStd
   #define lerdgeFilSensor
-  #if ENABLED(JP10SProVariant)
-    #undef  MeshStd
-    #define MeshFast
-
-    #undef  HotendStock
-    #undef  HotendAllMetal
-    #define HotendE3D
-    #define E3DHemera
-  #endif
 #endif
 
 #if ENABLED(MachineCR10Max)
@@ -884,7 +875,11 @@
   #endif
 #endif
 
-#if ANY(HotendE3D, HotendMosquito)
+#if ENABLED(E3DHemera)
+  #define DEFAULT_Kp 15.35
+  #define DEFAULT_Ki 1.06
+  #define DEFAULT_Kd 55.66
+#elif ANY(HotendE3D, HotendMosquito)
 //E3D v6 Clone with 5050 fan wing at 100% set to 235
 #define  DEFAULT_Kp 23.36
 #define  DEFAULT_Ki 1.99
