@@ -279,7 +279,7 @@ void onIdle()
 			{
         rtscheck.RTS_SndData(0 + CEIconGrap, IconPrintstatus);
 				rtscheck.RTS_SndData(getProgress_seconds_elapsed() / 3600, Timehour);
-				rtscheck.RTS_SndData((getProgress_seconds_elapsed() % 3600) / 60, Timemin);
+				rtscheck.RTS_SndData(100+((getProgress_seconds_elapsed() % 3600) / 60), Timemin);
 				if (getProgress_percent() > 0)
 				{
 					Percentrecord = getProgress_percent() + 1;
@@ -778,7 +778,7 @@ SERIAL_ECHOLN(PSTR("BeginSwitch"));
         RTS_SndData(0, Percentage);
         delay_ms(2);
         RTS_SndData(0, Timehour);
-        RTS_SndData(0, Timemin);
+        RTS_SndData(100+0, Timemin);
 
         SERIAL_ECHO("\n Handle Data PrintFile 2 Setting Screen ");
         RTS_SndData(ExchangePageBase + 45, ExchangepageAddr); //exchange to 45 page
@@ -867,7 +867,7 @@ SERIAL_ECHOLN(PSTR("BeginSwitch"));
         {
           RTS_SndData(ExchangePageBase + 45, ExchangepageAddr);
           RTS_SndData(0, Timehour);
-          RTS_SndData(0, Timemin);
+          RTS_SndData(100+0, Timemin);
           SERIAL_ECHOLNPAIR("Stop Triggered", recdat.data[0] );
           stopPrint();
         }
