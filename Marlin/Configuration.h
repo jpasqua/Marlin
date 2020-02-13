@@ -1231,6 +1231,12 @@
   #define DEFAULT_ACCELERATION          750    // X, Y, Z and E acceleration for printing moves
   #define DEFAULT_RETRACT_ACCELERATION  1000    // E acceleration for retracts
   #define DEFAULT_TRAVEL_ACCELERATION   300    // X, Y, Z acceleration for travel (non printing) moves
+// #elif (ENABLED(JP10SProVariant))
+//   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 12, 120 }
+//   #define DEFAULT_MAX_ACCELERATION      { 1500, 750, 1000, 1000 }
+//   #define DEFAULT_ACCELERATION          750    // X, Y, Z and E acceleration for printing moves
+//   #define DEFAULT_RETRACT_ACCELERATION  1250   // E acceleration for retracts
+//   #define DEFAULT_TRAVEL_ACCELERATION   750    // X, Y, Z acceleration for travel (non printing) moves
 #elif (ENABLED(MachineCR10SPro))
   #define DEFAULT_MAX_FEEDRATE          { 500, 500, 10, 70 }
   #define DEFAULT_MAX_ACCELERATION      { 750, 750, 100, 60 }
@@ -2168,8 +2174,8 @@
     #define Z_SAFE_HOMING_X_POINT 110 + HOMING_ADD    // X point for Z homing when homing all axis (G28).
     #define Z_SAFE_HOMING_Y_POINT 110 + HOMING_ADD    // Y point for Z homing when homing all axis (G28).
   #elif ENABLED(JP10SProVariant)
-    #define Z_SAFE_HOMING_X_POINT 70 + HOMING_ADD    // X point for Z homing when homing all axis (G28).
-    #define Z_SAFE_HOMING_Y_POINT 70 + HOMING_ADD    // Y point for Z homing when homing all axis (G28).
+    #define Z_SAFE_HOMING_X_POINT 150    // X point for Z homing when homing all axis (G28).
+    #define Z_SAFE_HOMING_Y_POINT 150    // Y point for Z homing when homing all axis (G28).
   #else
     #define Z_SAFE_HOMING_X_POINT 50 + HOMING_ADD    // X point for Z homing when homing all axis (G28).
     #define Z_SAFE_HOMING_Y_POINT 50 + HOMING_ADD    // Y point for Z homing when homing all axis (G28).
