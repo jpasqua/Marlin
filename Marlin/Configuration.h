@@ -1482,7 +1482,8 @@
      #define NOZZLE_TO_PROBE_OFFSET { -44, -10, 0 }
    #endif
 #elif ENABLED(JP10SProVariant)
-  #define NOZZLE_TO_PROBE_OFFSET { 60, 0, 0 }
+  // #define NOZZLE_TO_PROBE_OFFSET { 60, 0, 0 }  // Original BLTouch Location
+  #define NOZZLE_TO_PROBE_OFFSET { 0, -42, 0 }    // Experimental new BLTouch Location
 #elif ANY(MachineCR10SPro, MachineCR10Max) && ENABLED(HotendStock)
   #define NOZZLE_TO_PROBE_OFFSET { -27, 0, 0 }
 #elif ENABLED(MachineCR10SV2)
@@ -2174,8 +2175,8 @@
     #define Z_SAFE_HOMING_X_POINT 110 + HOMING_ADD    // X point for Z homing when homing all axis (G28).
     #define Z_SAFE_HOMING_Y_POINT 110 + HOMING_ADD    // Y point for Z homing when homing all axis (G28).
   #elif ENABLED(JP10SProVariant)
-    #define Z_SAFE_HOMING_X_POINT 150    // X point for Z homing when homing all axis (G28).
-    #define Z_SAFE_HOMING_Y_POINT 150    // Y point for Z homing when homing all axis (G28).
+    #define Z_SAFE_HOMING_X_POINT 150                 // X point for Z homing when homing all axis (G28).
+    #define Z_SAFE_HOMING_Y_POINT 150                 // Y point for Z homing when homing all axis (G28).
   #else
     #define Z_SAFE_HOMING_X_POINT 50 + HOMING_ADD    // X point for Z homing when homing all axis (G28).
     #define Z_SAFE_HOMING_Y_POINT 50 + HOMING_ADD    // Y point for Z homing when homing all axis (G28).

@@ -181,3 +181,5 @@ cmake-build-*
 
 #Python
 __pycache__
+Marlin/Marlin.ino.with_bootloader.mega.hex
+Marlin/Marlin.ino.mega.hex
